@@ -1,0 +1,5 @@
+const fs = require('fs');
+let [a, b] = fs.readFileSync(0).toString().split(" ").map(x => Number(x));
+
+console.log(`${a} * ${b} = ${a * b}`);
+console.log(`${a} / ${b} = ${Math.floor(a / b)}`);
