@@ -12,10 +12,12 @@ def isLeapYear(year):
     return result
 
 def returnSeason(year, month, day):
-    if (not isLeapYear(year) and month == 2 and day == 29): # 윤년이 아닌데, 29일 -> 오류
+    if (not isLeapYear(year) and month == 2 and day >= 29): # 윤년이 아닌데, 29일 이상 -> 오류
+        return -1
+    if (isLeapYear(year) and month == 2 and day > 29): # 윤년이고, 30, 31일 -> 오류
         return -1
     # 예외 경우 더 있음, 30일인지, 31일인지 체크
-    smallMonth = [2, 4, 6, 9, 11]
+    smallMonth = [4, 6, 9, 11]
     if month in smallMonth and day == 31: # 작은 달인데 31일 있음
         return -1
     else:
